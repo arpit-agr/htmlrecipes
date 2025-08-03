@@ -1,13 +1,26 @@
 ---
 title: Hero - Article
+contributorsName: Arpit Agrawal
+contributorsURL: https://arpit.codes/
 templateEngineOverride: md, njk
 ---
+{% set description %}
+It is common for articles to start with a heading. In this context, the `<header>` element is ideal for introductory content like a heading or table of contents.
+
+Articles often include metadata like the publication date, author information or a list of tags. This kind of information is well-suited for the `<footer>` element. As per <a href="https://html.spec.whatwg.org/multipage/sections.html#the-footer-element">the HTML Standard</a>: <q>A footer typically contains information about its section such as who wrote it, links to related documents, copyright data, and the like.</q> While footers are usually displayed at the end, they don’t necessarily have to be. What matters is the semantic meaning, not the visual position.
+
+If the author's contact information, like an email, website or social handle, is included, the `<address>` element is appropriate. If no actual contact information is provided, a simple `<p>` element is more suitable. As the HTML Standard notes: <q>Contact information for the author or editor of a section belongs in an address element, possibly itself inside a footer.</q>
+{% endset %}
+
 {%- set html -%}
-<header>
-  <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit</h1>
-  <p><em>Published on: <time datetime="2021-07-24">July 24</time></em></p>
-  <p><small><strong>Written by</strong>: Stephanie Eckles</small></p>
-</header>
+<article>
+  <header>
+    <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit</h1>
+  </header>
+  <footer>
+    <p>Published on: <time datetime="2021-07-24">July 24</time></p>
+    <address>Written by: <a href="https://thinkdobecreate.com/">Stephanie Eckles</a></address>
+  </footer>
+</article>
 {%- endset -%}
 {% include "code.njk" %}
-
